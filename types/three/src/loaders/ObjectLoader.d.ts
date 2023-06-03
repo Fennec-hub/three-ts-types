@@ -34,9 +34,10 @@ export class ObjectLoader extends Loader {
     parseTextures(json: any, images: any): Texture[];
     parseObject<T extends Object3D>(
         data: any,
-        geometries: any[],
-        materials: Material[],
-        animations: AnimationClip[],
+        geometries: { [uuid: string]: BufferGeometry },
+        materials: { [uuid: string]: Material },
+        textures: { [uuid: string]: Texture },
+        animations: { [uuid: string]: AnimationClip }
     ): // tslint:disable-next-line:no-unnecessary-generics
     T;
 }
